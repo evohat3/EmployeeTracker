@@ -5,5 +5,13 @@ VALUES (001, "Accounting"),
        (004, "Escalations");
 
 INSERT INTO roles (id, title, salary, department_id)
-VALUES ( id , "Manager", 60000, department_id )
---         (002, )
+VALUES  (id, "Manager", 60000, 004),
+        (id, "CSR", 38000, 003),
+        (id, "Officer", 50000, 002),
+        (id, "Underwriter", 80000, 001);
+
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES  ("Jimmy", "Jenkins", 001, null),
+        ("George", "Georgesen", 002, 001),
+        ("Rose", "Mary", 003, 001),
+        ("Billy", "Billison", 004, null);
