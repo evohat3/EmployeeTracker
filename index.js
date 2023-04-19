@@ -2,28 +2,30 @@ const mysql = require("mysql2/promise");
 const quest = require("./lib/questions");
 const run = require('./lib/CLI');
 const sql = require('console.table')
-require('dotenv').config();
-const password = process.env.PASSWORD;
+const connection = require('./lib/connection');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: password,
-  database: 'crusader_db'
-})
-.then((connection) => {
-  console.log('Connected to database');
-   connection;
-})
-.then((connection) => {
-  run(connection)
-})
-.catch((error) => {
-  console.error('Error connecting to database: ', error);
-});
+run(connection);
 
-module.exports = connection;
+
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   port: 3306,
+//   user: 'root',
+//   password: password,
+//   database: 'crusader_db'
+// })
+// .then((connection) => {
+//   console.log('Connected to database');
+//    connection;
+// })
+// .then((connection) => {
+//   run(connection)
+// })
+// .catch((error) => {
+//   console.error('Error connecting to database: ', error);
+// });
+
+// module.exports = connection;
 
 
 // const connectionDetails = {
